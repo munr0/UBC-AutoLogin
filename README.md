@@ -16,11 +16,11 @@ This is particularly useful if your browser is set to automatically launch a sit
    1. The extension should now appear in the extension menu
 1. See below for steps to set up login credentials
 # Usage
-This utility will automatically log you into **SAMail**, **iPeer**, and **authentication.ubc.ca** (and all the sites that use it – such as Canvas and Workday).
+This utility will automatically log you into **[payforprint](https://payforprint.ubc.ca)**, **[iPeer](https://ipeer.elearning.ubc.ca)**, and **authentication.ubc.ca** (and all the sites that use it – such as Canvas and Workday).
 
 #### To configure your CWL for these sites:
 1. Click the 🧩 icon in the top-right corner of your browser
 2. Select UBC AutoLogin
 3. Enter your CWL in the popup and hit save
 
-Your CWL is saved locally on your machine as a key–value pair, obfuscated with a single-char key and a looped base64-encoded string value.
+Your CWL is saved locally on your machine in Chrome's encrypted storage, with an additional layer of iterative base64 encoding.

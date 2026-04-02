@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () =>
         const username = document.getElementById("username").value
         const password = document.getElementById("password").value
         if (username && password) {
-            chrome.storage.local.set({ u: encrypt(username) })
-            chrome.storage.local.set({ p: encrypt(password) })
+            chrome.storage.local.set({ u: encode(username) })
+            chrome.storage.local.set({ p: encode(password) })
             window.close()
         }
         else {
@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", () =>
     (async () =>
     {
         const data = await chrome.storage.local.get(["u", "p"])
-        const olduser = unEncrypt(data.u)
-        const oldpass = unEncrypt(data.p)
+        const olduser = decode(data.u)
+        const oldpass = decode(data.p)
 
         if (olduser)
             document.getElementById("username").value = olduser
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () =>
     })()
 })
 
-function encrypt(data)
+function encode(data)
 {
     if (data) {
         for (let i = 0; i < 8; i++) {
@@ -36,7 +36,8 @@ function encrypt(data)
     }
     return data
 }
-function unEncrypt(data)
+
+function decode(data)
 {
     if (data) {
         for (let i = 0; i < 8; i++) {
